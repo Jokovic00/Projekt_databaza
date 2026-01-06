@@ -82,3 +82,19 @@ Dashboard obsahuje 5 vizualizácií, ktoré poskytujú základný prehlad o pote
 
 <p align="center">
   <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Graf1.png" alt="Graf"></p
+                                                                                            
+# Graf 1: Ktorí hrači mali najvyššie celkové xG?
+Graf 1 zobrazuje hráčov s najvyššou sumou očakávaných gólov (xG). Títo hráči sa najčastejšie dostávali do kvalitných streleckých pozícií
+
+
+# Graf 2: Ktoré tímy mali najvyššie celkové xG?
+Graf 2 Vizualizácia porovnáva ofenzívnu výkonnosť tímov na základe celkového xG. Vyššie hodnoty indikujú konzistentné vytváranie gólových šancí.
+
+# Graf 3: Ako sa menilo xG počas zápasu?
+Graf 3 znázorňuje rozloženie očakávaných gólov v čase zápasu. Vyššie hodnoty v neskorších minútach naznačujú zvýšený tlak tímov ku koncu zápasu.
+
+# Graf 4: Strely z vnútra vs mimo pokutového územia
+Graf 4  Strely z vnútra pokutového územia majú výrazne vyššie xG, čo potvrdzuje dôležitosť pozičnej hry a prenikania do nebezpečných zón.
+
+# Graf 5: Top 10 najkvalitnejších striel (podľa xG)
+Graf 5 zobrazuje jednotlivé strely s najvyššou hodnotou očakávaného gólu, ktoré predstavovali najväčšie gólové príležitosti v analyzovanom kole.
