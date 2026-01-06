@@ -77,3 +77,6 @@ CASE
   ELSE FALSE
 END AS is_inside_box
 ```
+### 4 Visualizácia dát 
+Dashboard obsahuje 5 vizualizácií, ktoré poskytujú základný prehlad o potencialnom gole a XG timov a hračov v Premier League. Tieto vizualizácie odpovedajú na dôležité otázky a umožňujú lepšie pochopiť šutovanie na gol hrača a ich preferencie.
+
