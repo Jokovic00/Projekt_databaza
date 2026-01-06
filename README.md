@@ -15,5 +15,5 @@ Zdrojové dáta pochádzajú zo Snowflake Marketplace a sú poskytované v rámc
 
 Účelom ELT procesu bolo tieto dáta extrahovať zo Snowflake Marketplace, transformovať do vhodnej podoby a sprístupniť ich prostredníctvom dimenzionálneho dátoveho skladu so schémou Star Schema, ktorý umožňuje viacdimenyionálnu analytickú analýzu a tvorbu vizualizácií kľučových metrík.
 # 1.1 Dátová architektúra
-  #ERD diagram 
+**ERD diagram**
 Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na entitno-relačnom diagrame (ERD):
