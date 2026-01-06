@@ -19,3 +19,7 @@ Zdrojové dáta pochádzajú zo Snowflake Marketplace a sú poskytované v rámc
 Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na entitno-relačnom diagrame (ERD):
 <p align="center">
   <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_ERD.png" alt="ERD Schema"></p>
+
+# 1.2 Star Chema
+<p align="center">
+  <img src="
