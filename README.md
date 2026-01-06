@@ -24,9 +24,9 @@ Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na ent
 V ukážke bola navrhnutá **schéma hviezdy (star schema)** podľa Kimballovej metodológie, ktorá obsahuje 1 tabuľku faktov **`fact_ratings`**, ktorá je prepojená s nasledujúcimi 4 dimenziami:
 - **`dim_team`**: Obsahuje podrobné informácie o knihách (názov, autor, rok vydania, vydavateľ).
 - **`dim_player`**: Obsahuje demografické údaje o používateľoch, ako sú vekové kategórie, pohlavie, povolanie a vzdelanie.
-- **`dim_date`**: Zahrňuje informácie o dátumoch hodnotení (deň, mesiac, rok, štvrťrok).
+- **`dim_date`**: Zahrňuje informácie o dátumoch (deň, mesiac, rok, štvrťrok).
 - **`dim_match`**: Obsahuje podrobné časové údaje (hodina, AM/PM).
-- **'dim_event'**:
+- **`dim_event`**:
 
 
 <p align="center">
