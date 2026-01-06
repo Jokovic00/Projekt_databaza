@@ -60,15 +60,27 @@ FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.EVENT_TYPE_QUALIFIER;
 
 CREATE OR REPLACE TABLE STG_VENUE AS
 SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.VENUE;
+Tento príkaz predstavuje Extract krok, pri ktorom boli do staging vrstvy skopírované všetky dáta o zápasoch Premier League zo Snowflake Marketplace. Tabuľka obsahuje základné informácie o zápasoch, ako sú dátum, sezóna, hracie kolo, domáci a hosťujúci tím, skóre a identifikátor štadióna. V tomto kroku nedochádza k žiadnej transformácii dát, cieľom je len zachovať surové dáta v pôvodnej podobe.
 ```
 ### 3.2 Load
 #### Príklad kódu:
 ```sql
-INSERT INTO DIM_PLAYER (...)
-SELECT ...
-FROM STAGING.STG_PLAYER
-JOIN DIM_TEAM ...
+INSERT INTO DIM_TEAM
+SELECT DISTINCT
+  t.id,
+  t.name,
+  SUBSTR(t.name,1,3),
+  'England',
+  v.name,
+  CURRENT_DATE(),
+  '9999-12-31',
+  TRUE
+FROM STAGING.STG_TEAM t
+LEFT JOIN STAGING.STG_GAME g ON g.home_team = t.id
+LEFT JOIN STAGING.STG_VENUE v ON g.venue_id = v.id;
+
 ```
+Tento príkaz predstavuje Load krok, pri ktorom sa napĺňa dimenzia tímov v dátovom sklade. Počas tohto procesu dochádza zároveň k transformáciám, keďže sa vytvára skrátený názov tímu, dopĺňa sa krajina pôvodu a názov domáceho štadióna. Použitie atribútov valid_from, valid_to a is_current umožňuje historizáciu údajov podľa princípu SCD Type 2.
 ### 3.3 Transfer
 #### Príklad kódu
 ```sql
