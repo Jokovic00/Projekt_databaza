@@ -21,12 +21,14 @@ Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na ent
   <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_ERD.png" alt="ERD Schema"></p>
 
 # 2 Dimenzionálny model
-V ukážke bola navrhnutá **schéma hviezdy (star schema)** podľa Kimballovej metodológie, ktorá obsahuje 1 tabuľku faktov **`fact_ratings`**, ktorá je prepojená s nasledujúcimi 4 dimenziami:
-- **`dim_team`**: Obsahuje podrobné informácie o knihách (názov, autor, rok vydania, vydavateľ).
-- **`dim_player`**: Obsahuje demografické údaje o používateľoch, ako sú vekové kategórie, pohlavie, povolanie a vzdelanie.
+V ukážke bola navrhnutá **schéma hviezdy (star schema)** podľa Kimballovej metodológie, ktorá obsahuje 1 tabuľku faktov **`fact_shot`**, ktorá je prepojená s nasledujúcimi 4 dimenziami:
+- **`dim_team`**: Obsahuje podrobné informácie o teame (názov, rok, vydavateľ).Typ SCD je 2 (valid_from,valid_to,is_current)
+- **`dim_player`**: Obsahuje podrobné informácie o hráčoch.Typ SCD je 2 (valid_from,valid_to,is_current)
 - **`dim_date`**: Zahrňuje informácie o dátumoch (deň, mesiac, rok, štvrťrok).
-- **`dim_match`**: Obsahuje podrobné časové údaje (hodina, AM/PM).
-- **`dim_event`**:
+- **`dim_match`**: Obsahuje zápasove údaje (matchday, attendance).
+- **`dim_even_type`**: Obsahuje informácie o evente(is_goal_attempt,event_type_name)
+
+
 
 
 <p align="center">
