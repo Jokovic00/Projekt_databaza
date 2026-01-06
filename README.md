@@ -85,16 +85,60 @@ Dashboard obsahuje 5 vizualizácií, ktoré poskytujú základný prehlad o pote
                                                                                             
 # Graf 1: Ktorí hrači mali najvyššie celkové xG?
 Graf 1 zobrazuje hráčov s najvyššou sumou očakávaných gólov (xG). Títo hráči sa najčastejšie dostávali do kvalitných streleckých pozícií
-
+```sql
+SELECT
+  dp.player_last_name AS player,
+  SUM(fs.xg) AS total_xg
+FROM FACT_SHOTS fs
+JOIN DIM_PLAYER dp ON fs.player_key = dp.player_key
+GROUP BY dp.player_last_name
+ORDER BY total_xg DESC
+LIMIT 10;
+```
 
 # Graf 2: Ktoré tímy mali najvyššie celkové xG?
 Graf 2 Vizualizácia porovnáva ofenzívnu výkonnosť tímov na základe celkového xG. Vyššie hodnoty indikujú konzistentné vytváranie gólových šancí.
+```sql
+SELECT
+  dt.team_name,
+  SUM(fs.xg) AS team_xg
+FROM FACT_SHOTS fs
+JOIN DIM_TEAM dt ON fs.team_key = dt.team_key
+GROUP BY dt.team_name
+ORDER BY team_xg DESC;
+```
 
 # Graf 3: Ako sa menilo xG počas zápasu?
 Graf 3 znázorňuje rozloženie očakávaných gólov v čase zápasu. Vyššie hodnoty v neskorších minútach naznačujú zvýšený tlak tímov ku koncu zápasu.
+```sql
+SELECT
+  period_minute,
+  SUM(xg) AS total_xg
+FROM FACT_SHOTS
+GROUP BY period_minute
+ORDER BY period_minute;
+```
 
 # Graf 4: Strely z vnútra vs mimo pokutového územia
 Graf 4  Strely z vnútra pokutového územia majú výrazne vyššie xG, čo potvrdzuje dôležitosť pozičnej hry a prenikania do nebezpečných zón.
+```sql
+SELECT
+  is_inside_box,
+  COUNT(*) AS shot_count,
+  SUM(xg) AS total_xg
+FROM FACT_SHOTS
+GROUP BY is_inside_box;
+```
 
 # Graf 5: Top 10 najkvalitnejších striel (podľa xG)
 Graf 5 zobrazuje jednotlivé strely s najvyššou hodnotou očakávaného gólu, ktoré predstavovali najväčšie gólové príležitosti v analyzovanom kole.
+```sql
+SELECT
+  dp.player_last_name,
+  fs.xg,
+  fs.period_minute
+FROM FACT_SHOTS fs
+JOIN DIM_PLAYER dp ON fs.player_key = dp.player_key
+ORDER BY fs.xg DESC
+LIMIT 10;
+```
