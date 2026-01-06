@@ -81,7 +81,7 @@ END AS is_inside_box
 Dashboard obsahuje 5 vizualizácií, ktoré poskytujú základný prehlad o potencialnom gole a XG timov a hračov v Premier League. Tieto vizualizácie odpovedajú na dôležité otázky a umožňujú lepšie pochopiť šutovanie na gol hrača a ich preferencie.
 
 <p align="center">
-  <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Graf1.png" alt="Graf"></p
+  <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Graf1.png" alt="Graf"></p>
                                                                                             
 # Graf 1: Ktorí hrači mali najvyššie celkové xG?
 Graf 1 zobrazuje hráčov s najvyššou sumou očakávaných gólov (xG). Títo hráči sa najčastejšie dostávali do kvalitných streleckých pozícií
