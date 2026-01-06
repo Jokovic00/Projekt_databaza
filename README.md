@@ -32,4 +32,48 @@ V ukážke bola navrhnutá **schéma hviezdy (star schema)** podľa Kimballovej 
 
 
 <p align="center">
-  <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_star.png" alt = "Star Schema"></p>
+  <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_star.png" alt = "Star Schema"></p> 
+
+## 3. ELT proces v Snowflake
+ETL proces zahŕňal tri kľúčové fázy: extrakciu (Extract), transformáciu (Transform) a nahrávanie (Load). V prostredí Snowflake bol tento proces realizovaný s cieľom spracovať zdrojové dáta zo staging vrstvy a pripraviť ich do viacdimenzionálneho dátového modelu vhodného na analytické spracovanie a vizualizáciu.
+### 3.1 Extract(Extrahovanie dát)
+#### Príklad kódu:
+```sql
+CREATE OR REPLACE TABLE STG_GAME AS
+SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.GAME;
+
+CREATE OR REPLACE TABLE STG_TEAM AS
+SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.TEAM;
+
+CREATE OR REPLACE TABLE STG_PLAYER AS
+SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.PLAYER;
+
+CREATE OR REPLACE TABLE STG_EVENT AS
+SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.EVENT;
+
+CREATE OR REPLACE TABLE STG_EVENT_TYPE AS
+SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.EVENT_TYPE;
+
+CREATE OR REPLACE TABLE STG_EVENT_TYPE_QUALIFIER AS
+SELECT * 
+FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.EVENT_TYPE_QUALIFIER;
+
+CREATE OR REPLACE TABLE STG_VENUE AS
+SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.VENUE;
+```
+### 3.2 Load
+#### Príklad kódu:
+```sql
+INSERT INTO DIM_PLAYER (...)
+SELECT ...
+FROM STAGING.STG_PLAYER
+JOIN DIM_TEAM ...
+```
+### 3.3 Transfer
+#### Príklad kódu
+```sql
+CASE
+  WHEN e.x > 83 AND e.y BETWEEN 21 AND 79 THEN TRUE
+  ELSE FALSE
+END AS is_inside_box
+```
