@@ -20,6 +20,14 @@ Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na ent
 <p align="center">
   <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_ERD.png" alt="ERD Schema"></p>
 
-# 1.2 Star Schema
+# 2 Dimenzionálny model
+V ukážke bola navrhnutá **schéma hviezdy (star schema)** podľa Kimballovej metodológie, ktorá obsahuje 1 tabuľku faktov **`fact_ratings`**, ktorá je prepojená s nasledujúcimi 4 dimenziami:
+- **`dim_team`**: Obsahuje podrobné informácie o knihách (názov, autor, rok vydania, vydavateľ).
+- **`dim_player`**: Obsahuje demografické údaje o používateľoch, ako sú vekové kategórie, pohlavie, povolanie a vzdelanie.
+- **`dim_date`**: Zahrňuje informácie o dátumoch hodnotení (deň, mesiac, rok, štvrťrok).
+- **`dim_match`**: Obsahuje podrobné časové údaje (hodina, AM/PM).
+- **'dim_event'**:
+
+
 <p align="center">
   <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_star.png" alt = "Star Schema"></p>
