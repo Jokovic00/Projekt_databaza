@@ -20,6 +20,6 @@ Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na ent
 <p align="center">
   <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_ERD.png" alt="ERD Schema"></p>
 
-# 1.2 Star Chema
+# 1.2 Star Schema
 <p align="center">
-  <img src="
+  <img src="https://github.com/Jokovic00/Projekt_databaza/blob/main/Projekt_star.png" alt = "Star Schema"
