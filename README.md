@@ -17,3 +17,5 @@ Zdrojové dáta pochádzajú zo Snowflake Marketplace a sú poskytované v rámc
 # 1.1 Dátová architektúra
 **ERD diagram**
 Surové dáta sú usporiadané v relačnom modeli, ktorý je znázornený na entitno-relačnom diagrame (ERD):
+<p> align="center">
+  <img src= alt="ERD Schema"></p>
