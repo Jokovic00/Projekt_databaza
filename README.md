@@ -60,6 +60,7 @@ FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.EVENT_TYPE_QUALIFIER;
 
 CREATE OR REPLACE TABLE STG_VENUE AS
 SELECT * FROM OPTA_DATA_FOOTBALL__SAMPLE.EPL.VENUE;
+
 Tento príkaz predstavuje Extract krok, pri ktorom boli do staging vrstvy skopírované všetky dáta o zápasoch Premier League zo Snowflake Marketplace. Tabuľka obsahuje základné informácie o zápasoch, ako sú dátum, sezóna, hracie kolo, domáci a hosťujúci tím, skóre a identifikátor štadióna. V tomto kroku nedochádza k žiadnej transformácii dát, cieľom je len zachovať surové dáta v pôvodnej podobe.
 ```
 ### 3.2 Load
@@ -89,6 +90,7 @@ CASE
   ELSE FALSE
 END AS is_inside_box
 ```
+Tento CASE výraz slúži na určenie, či bola strela vykonaná z vnútra pokutového územia. Na základe súradníc strely sa kontroluje, či hodnota x je väčšia ako 83, čo znamená, že strela bola vykonaná v blízkosti súperovej brány, a zároveň či hodnota y spadá do intervalu medzi 21 a 79, čo zodpovedá šírke pokutového územia. Ak sú obe podmienky splnené, výsledkom je hodnota TRUE, ktorá označuje strelu z vnútra šestnástky, v opačnom prípade je výsledkom hodnota FALSE, teda strela bola vykonaná mimo pokutového územia.
 ### 4 Visualizácia dát 
 Dashboard obsahuje 5 vizualizácií, ktoré poskytujú základný prehlad o potencialnom gole a XG timov a hračov v Premier League. Tieto vizualizácie odpovedajú na dôležité otázky a umožňujú lepšie pochopiť šutovanie na gol hrača a ich preferencie.
 
